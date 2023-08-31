@@ -1,0 +1,48 @@
+1)SELECT *FROM albums;
+
+2) SELECT *FROM albums WHERE Title LIKE '%Great%';
+
+3)SELECT COUNT(*) FROM albums;
+
+4)DELETE FROM albums WHERE Title LIKE '%music%';
+
+5)SELECT * FROM albums
+JOIN artists ON albums.ArtistId = artists.ArtistId
+WHERE artists.name = 'AC/dc'
+
+#bloc musical
+  CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    name TEXT
+      );
+
+ CREATE TABLE articles (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER,
+    title TEXT,
+    description TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+    );
+ CREATE TABLE article_category (
+    article_id INTEGER,
+    category_id INTEGER,
+    FOREIGN KEY (article_id) REFERENCES articles(id),
+    FOREIGN KEY (category_id) REFERENCES categories(id)
+    );
+sqlite> CREATE TABLE tags (
+    id INTEGER PRIMARY KEY,
+    titlt TEXT,
+    color TEXT,
+    );
+
+ CREATE TABLE tags (
+    id INTEGER PRIMARY KEY,
+    title TEXT,
+    color TEXT
+    );
+ CREATE TABLE category_tags (
+    category_id INTEGER,
+    tag_id INTEGER,
+    FOREIGN KEY (category_id) REFERENCES categories(id),
+    FOREIGN KEY (tag_id) REFERENCES tags(id)
+    );
